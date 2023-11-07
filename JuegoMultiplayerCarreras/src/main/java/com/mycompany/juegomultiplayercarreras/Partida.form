@@ -40,7 +40,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               <Component id="coche1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="126" max="32767" attributes="0"/>
+              <EmptySpace pref="140" max="32767" attributes="0"/>
               <Component id="coche2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
           </Group>
@@ -52,14 +52,14 @@
     <Component class="javax.swing.JLabel" name="coche1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\ruben\Documents\NetBeansProjects\JuegoMultiplayerCarreras\src\main\resources\coche1.png"/>
+          <Image iconType="3" name="/coche1.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="coche2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\ruben\Documents\NetBeansProjects\JuegoMultiplayerCarreras\src\main\resources\coche2.png"/>
+          <Image iconType="3" name="/coche2.png"/>
         </Property>
       </Properties>
     </Component>

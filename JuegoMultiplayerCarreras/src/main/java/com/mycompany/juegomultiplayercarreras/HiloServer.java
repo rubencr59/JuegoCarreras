@@ -14,12 +14,19 @@ public class HiloServer extends Thread {
         this.socket = jugadorNuevo.socketJugador;
         this.jugadoresConectados = jugadoresConectados;
     }
+    
+    public void setJugadoresConectados(ArrayList<HiloServer> jugadoresConectados){
+        this.jugadoresConectados = jugadoresConectados;
+    }
+    
+    public Jugador getJugadorConectado(){
+        return jugadorConectado;
+    }
 
     @Override
     public void run() {
         try {
             DataInputStream entrada = new DataInputStream(socket.getInputStream());
-            DataOutputStream salida = new DataOutputStream(socket.getOutputStream());
             //Envia el id del jugador al cliente.
 
             while (true) {
@@ -32,13 +39,8 @@ public class HiloServer extends Thread {
                 }
               
                 System.out.println("Movimiento recibido: " + movimientoJugador);
+                enviarMovimientoATodos(movimientoJugador);
 
-                for (HiloServer jugador : jugadoresConectados) {
-                    if (jugador != this) {
-                        // Envía el movimiento a otros jugadores
-                        jugador.enviarMovimiento(salida,movimientoJugador);
-                    }
-                }
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -47,9 +49,16 @@ public class HiloServer extends Thread {
 
 
 
-    public void enviarMovimiento(DataOutputStream salida, String movimiento) {
+    public void enviarMovimientoATodos( String movimiento) {
         try {
-            salida.writeUTF(movimiento);
+            for (HiloServer jugador : this.jugadoresConectados) {
+                DataOutputStream salida = new DataOutputStream(jugador.socket.getOutputStream());
+
+                if (jugador != this) {
+                    // Envía el movimiento a otros jugadores
+                    salida.writeUTF(movimiento);
+                }
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

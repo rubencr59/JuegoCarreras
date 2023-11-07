@@ -31,6 +31,7 @@ public class Cliente {
             //Salida de datos.
             DataOutputStream salida = new DataOutputStream(socket.getOutputStream());
             
+
             partida.addKeyListener(new KeyListener() {
 
                 @Override
@@ -68,16 +69,15 @@ public class Cliente {
                 }
             });
 
-            Executors.newFixedThreadPool(1).execute(() -> {
-                try {
-                    while (true) {
-                        String movimiento = entrada.readUTF();
-                        System.out.println(movimiento);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
+        try {
+            while (true) {
+                String mensaje = entrada.readUTF(); // Lee el mensaje del servidor
+                System.out.println("Mensaje recibido del servidor: " + mensaje); // Imprime el mensaje
+            }
+        } catch (IOException e) {
+            // Maneja errores de lectura o cierre de la conexión
+            e.printStackTrace();
+        }
 
         } catch (IOException e) {
             throw new RuntimeException(e);

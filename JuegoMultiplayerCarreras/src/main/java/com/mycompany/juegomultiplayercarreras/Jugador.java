@@ -17,4 +17,8 @@ public class Jugador {
     public int getId() {
         return id;
     }
+    
+    public Socket getSocket(){
+        return socketJugador;
+    }
 }

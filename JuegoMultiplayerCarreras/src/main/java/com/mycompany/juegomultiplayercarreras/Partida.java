@@ -43,9 +43,9 @@ public class Partida extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        coche1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruben\\Documents\\NetBeansProjects\\JuegoMultiplayerCarreras\\src\\main\\resources\\coche1.png")); // NOI18N
+        coche1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coche1.png"))); // NOI18N
 
-        coche2.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruben\\Documents\\NetBeansProjects\\JuegoMultiplayerCarreras\\src\\main\\resources\\coche2.png")); // NOI18N
+        coche2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coche2.png"))); // NOI18N
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setOpaque(true);
@@ -68,7 +68,7 @@ public class Partida extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(coche1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addComponent(coche2)
                 .addGap(30, 30, 30))
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
